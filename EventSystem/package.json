@@ -1,0 +1,27 @@
+{
+  "name": "event-system",
+  "version": "0.0.1",
+  "description": "event manager",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/node8/team"
+  },
+  "keywords": [
+    "node.js"
+  ],
+  "author": "Team 8",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "connect-busboy": "0.0.2",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "jade": "^1.11.0",
+    "passport": "^0.3.2"
+  }
+}
