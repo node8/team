@@ -47,8 +47,10 @@ module.exports = function(app) {
   //app.post('/events/:id/leave', controllers.events.leaveEvent);
   //
   //// --- ADMIN ONLY ---
-  ////POST events - Creates a new event and redirects to the newly created event
-  //app.post('/events', auth.isInRole('admin'), controllers.events.createEvent);
+  //POST events - Creates a new event and redirects to the newly created event
+  // TODO: auth.isInRole('admin'),
+  app.post('/events', controllers.events.createEvent);
+
   //
   ////PUT events/{eventId} - Update an existing event, redirects to events
   //app.put('/events/:id', auth.isInRole('admin'), controllers.events.updateEventById);
