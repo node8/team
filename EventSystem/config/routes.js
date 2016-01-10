@@ -3,19 +3,22 @@ var auth = require('./auth'),
 
 module.exports = function(app) {
 /* Users */
-  //app.get('/users', auth.isInRole('admin'), controllers.users.getAllUsers);
+
+  // GET
+  app.get('/users', auth.isInRole('admin'), controllers.users.getAllUsers);
+
   //// GET users/profile/{userId} - gets an existing user
   //app.get('/users/:id', controllers.users.getUserById);
   //
   //// GET users/register - returns user(s) registration form
   //app.get('/users/register', controllers.users.registrationFrom);
-  //
-  //// POST users/register - Registers a new user in the events system
-  //app.post('/users/register', controllers.users.createUser);
-  //
-  //// PUT users/profile/{userId} - updates an existing user
-  //app.put('/users/:id', auth.isAuthenticated, controllers.users.updateUser);
-  //
+
+  // POST users/register - Registers a new user in the events system
+  app.post('/users/register', controllers.users.createUser);
+
+  // PUT users/profile/{userId} - updates an existing user
+  app.put('/users/:id', auth.isAuthenticated, controllers.users.updateUser);
+
   //// POST users/login - Logs in a user in the events system
   //app.post('/users/login', auth.login);
   //
