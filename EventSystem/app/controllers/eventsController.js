@@ -6,7 +6,7 @@ module.exports = {
       if (err) {
         return next(err);
       }
-      res.render('index', {
+      res.render('events/event', {
         title: 'Events list',
         events: events
       });
