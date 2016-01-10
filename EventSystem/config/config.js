@@ -9,7 +9,7 @@ var config = {
       name: 'nodejsteamwork'
     },
     port: 3000,
-    db: 'mongodb://localhost/nodejsteamwork-development'
+    db: 'mongodb://admin:admin@ds039185.mongolab.com:39185/eventsystem'
   },
 
   test: {
@@ -18,7 +18,7 @@ var config = {
       name: 'nodejsteamwork'
     },
     port: 3000,
-    db: 'mongodb://localhost/nodejsteamwork-test'
+    db: 'mongodb://admin:admin@ds039185.mongolab.com:39185/eventsystem'
   },
 
   production: {
@@ -27,7 +27,7 @@ var config = {
       name: 'nodejsteamwork'
     },
     port: 3000,
-    db: 'mongodb://localhost/nodejsteamwork-production'
+    db: 'mongodb://admin:admin@ds039185.mongolab.com:39185/eventsystem'
   }
 };
 
