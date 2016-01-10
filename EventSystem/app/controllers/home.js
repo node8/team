@@ -8,11 +8,11 @@ module.exports = function (app) {
 };
 
 router.get('/', function (req, res, next) {
-  Event.find(function (err, articles) {
+  Event.find(function (err, events) {
     if (err) return next(err);
     res.render('index', {
       title: 'Generator-Express MVC',
-      articles: articles
+      events: events
     });
   });
 });
