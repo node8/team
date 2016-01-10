@@ -16,7 +16,7 @@ module.exports = {
     var newEvent = {};
     newEvent = {
       title: req.body.title,
-      description: req.body.description,
+      description: req.body.description
     };
 
     Event.create(newEvent, function(err, createdEvent){
@@ -29,5 +29,19 @@ module.exports = {
           event: createdEvent
         });
       })
+  },
+  getEventById: function(req, res, next) {
+    Event.findOne( { _id: req.params.id } ).exec(function(err, event){
+      if(err){
+        console.log("Event could not be found" + err);
+        res.status(404).end();
+      }
+
+      console.log("Event got!");
+      res.render('events/event-details', {
+        title: 'New event',
+        event: event
+      });
+    })
   }
 };
