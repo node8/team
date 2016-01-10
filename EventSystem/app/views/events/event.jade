@@ -1,2 +1,6 @@
-h1 Hello #{name}
+extends layout
 
+block content
+  ul
+    each event in events
+      li= event

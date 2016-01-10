@@ -10,8 +10,10 @@ html(lang='en')
     block js
       if ENV_DEVELOPMENT
         script(src='http://localhost:35729/livereload.js')
+      script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js')
+      script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
   body
-    nav(class='navbar navbar-inverse')
+    nav(class='navbar navbar-inverse navbar-fixed-top topnav')
       div(class='container-fluid')
         div(class='navbar-header')
           button(type='button', class='navbar-toggle collapsed', data-toggle='collapse', data-target='#bs-example-navbar-collapse-2')
@@ -24,4 +26,12 @@ html(lang='en')
           ul(class='nav navbar-nav')
             li
               a(href='/events') Events
+          ul(class='nav navbar-nav navbar-right')
+            li(class='dropdown')
+              a(class='dropdown-toggle', data-toggle='dropdown', role='button', aria-expanded='false') Admin
+                span(class='caret')
+              ul(class='dropdown-menu', role='menu')
+                li
+                  a(href='/users') Users
+
     block content
