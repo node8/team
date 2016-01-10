@@ -1,6 +1,6 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema,
-  userModel = mongoose.Model('User');
+  userModel = mongoose.model('User');
 
 var RatingSchema = new Schema({
   userId: String, // TODO: UserSchema

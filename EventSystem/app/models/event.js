@@ -1,11 +1,10 @@
 // Event model
-
 var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
-  userModel = mongoose.Model('User').schema;
-  townModel = mongoose.Model('Town').schema;
-  commentModel = mongoose.Model('Comment').schema;
-  ratingModel = mongoose.Model('Rating').schema;
+  Schema = mongoose.Schema,
+  userModel = mongoose.model('User').schema,
+  townModel = mongoose.model('Town').schema,
+  commentModel = mongoose.model('Comment').schema,
+  ratingModel = mongoose.model('Rating').schema;
 
 var EventSchema = new Schema({
   title: String,
