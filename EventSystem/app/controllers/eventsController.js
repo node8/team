@@ -31,16 +31,17 @@ module.exports = {
       })
   },
   getEventById: function(req, res, next) {
-    Event.findOne( { _id: req.params.id } ).exec(function(err, event){
+    Event.findOne( { _id: req.params.id } ).exec(function(err, getEvent){
       if(err){
         console.log("Event could not be found" + err);
         res.status(404).end();
       }
 
       console.log("Event got!");
+      
       res.render('events/event-details', {
         title: 'New event',
-        event: event
+        event: getEvent
       });
     })
   }
