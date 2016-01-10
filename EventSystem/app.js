@@ -4,6 +4,7 @@ var express = require('express'),
   mongoose = require('mongoose');
 
 require('./config/mongoose')(config);
+require('./config/routes');
 
 //
 //mongoose.connect(config.db);
