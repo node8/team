@@ -32,7 +32,7 @@ module.exports = function(app) {
   app.get('/events', controllers.events.getAllEvents);
 
   ////GET events/{eventId} - Gets event (details) with Id = eventId, with 10 comments sorted by date
-  // app.get('/events/:id', controllers.events.getEventById);
+  app.get('/events/:id', controllers.events.getEventById);
   //
   // //GET events?page=page (*P) - Gets the events at positions from P10 to (P+1)10. The events sorted by date of creation and are at most 10.
   // // TODO: app.get('/events/:id', controllers.events.getEvents);
