@@ -2,7 +2,6 @@ var express = require('express'),
   router = express.Router(),
   mongoose = require('mongoose'),
   Event = mongoose.model('Event');
-//Article = mongoose.model('Article');
 
 module.exports = function (app) {
   app.use('/', router);
