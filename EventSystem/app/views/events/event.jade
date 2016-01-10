@@ -1,6 +1,11 @@
-extends layout
+extends ../layout
 
 block content
-  ul
-    each event in events
-      li= event
+  div(style='margin-top: 60px')
+    #container
+      if events != 0
+        ul
+          each event in events
+            li= event
+      else
+        h1 No events found!
