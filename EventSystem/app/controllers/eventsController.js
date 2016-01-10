@@ -38,7 +38,7 @@ module.exports = {
       }
 
       console.log("Event got!");
-      
+
       res.render('events/event-details', {
         title: 'New event',
         event: getEvent
