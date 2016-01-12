@@ -14,12 +14,15 @@ module.exports = function(app) {
         error: {
           status: "Status: Error 404",
           stack: "Stack not provided!"
-        }
+        },
+        title: 'Error',
+        description: 'An error happended',
+        user: req.user
       }
     );
   });
 
   app.get('*', function(req, res) {
-    res.render('index', {currentUser: req.user});
+    res.render('index', {user: req.user});
   });
 };

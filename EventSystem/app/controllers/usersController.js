@@ -1,8 +1,6 @@
 var encryption = require('../utilities/encryption');
 var User = require('mongoose').model('User');
 
-
-
 module.exports = {
   createUser: function(req, res, next) {
     var newUserData = req.body;

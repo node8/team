@@ -18,7 +18,7 @@ module.exports = {
     },
     logout: function(req, res, next) {
         req.logout();
-        res.end();
+        res.redirect('/home');
     },
     isAuthenticated: function(req, res, next) {
         if (!req.isAuthenticated()) {
