@@ -7,7 +7,7 @@ var app = express();
 
 require('./config/mongoose')(config);
 require('./config/express')(app, config);
-require('./config/routes')(app);
+require('./app/routers')(app);
 
 //
 //mongoose.connect(config.db);
