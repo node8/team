@@ -1,6 +1,9 @@
 var express = require('express');
 var glob = require('glob');
 var passport = require('passport');
+var session = require('express-session');
+var User = require('mongoose').model('User');
+var LocalStrategy = require('passport-local').Strategy;
 
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -27,18 +30,40 @@ module.exports = function(app, config) {
   app.use(compress());
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
-  //
-  //var controllers = glob.sync(config.root + '/app/controllers/*.js');
-  //controllers.forEach(function (controller) {
-  //  require(controller)(app);
-  //});
 
-  //app.use(function (req, res, next) {
-  //  var err = new Error('Not Found');
-  //  err.status = 404;
-  //  next(err);
-  //});
-  //
+  // Passport config
+  app.use(session({
+    secret: 'nodejs teamwork',
+    resave: true,
+    saveUninitialized: false
+  }));
+  app.use(passport.initialize());
+  app.use(passport.session());
+
+  passport.use(new LocalStrategy(
+    function(username, password, done) {
+      User.findOne({ username: username }, function (err, user) {
+        if (err) { return done(err); }
+        if (!user) {
+          return done(null, false, { message: 'Incorrect username.' });
+        }
+        if (!user.validPassword(password)) {
+          return done(null, false, { message: 'Incorrect password.' });
+        }
+        return done(null, user);
+      });
+    }
+  ));
+
+  passport.serializeUser(function(user, done) {
+    done(null, user);
+  });
+
+  passport.deserializeUser(function(user, done) {
+    done(null, user);
+  });
+
+
   if(app.get('env') === 'development'){
     app.use(function (err, req, res, next) {
       res.status(err.status || 500);

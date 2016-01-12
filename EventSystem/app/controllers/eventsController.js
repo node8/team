@@ -8,7 +8,8 @@ module.exports = {
       }
       res.render('events/event', {
         title: 'Events list',
-        events: events
+        events: events,
+        user: req.user
       });
     });
   },
@@ -16,7 +17,8 @@ module.exports = {
     var newEvent = {};
     newEvent = {
       title: req.body.title,
-      description: req.body.description
+      description: req.body.description,
+      user: req.user
     };
 
     Event.create(newEvent, function(err, createdEvent){
@@ -26,7 +28,8 @@ module.exports = {
         }
         res.render('events/event-details', {
           title: 'New event',
-          event: createdEvent
+          event: createdEvent,
+          user: req.user
         });
       })
   },
@@ -41,7 +44,8 @@ module.exports = {
 
       res.render('events/event-details', {
         title: 'New event',
-        event: getEvent
+        event: getEvent,
+        user: req.user
       });
     })
   }

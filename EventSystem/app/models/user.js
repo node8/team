@@ -20,7 +20,15 @@ userSchema.method({
     else {
       return false;
     }
+  },
+  validPassword: function(password) {
+    if (encryption.generateHashedPassword(this.salt, password) === this.hashPass) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
-})
+});
 
 var User = mongoose.model('User', userSchema);
