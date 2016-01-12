@@ -6,6 +6,7 @@ var express = require('express'),
 var app = express();
 
 require('./config/mongoose')(config);
+require('./config/express')(app, config);
 require('./config/routes')(app);
 
 //
@@ -19,8 +20,6 @@ require('./config/routes')(app);
 //models.forEach(function (model) {
 //  require(model);
 //});
-
-require('./config/express')(app, config);
 
 app.listen(config.port, function () {
   console.log('Express server listening on port ' + config.port);

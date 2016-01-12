@@ -3,19 +3,22 @@ var auth = require('./auth'),
 
 module.exports = function(app) {
 /* Users */
-  //app.get('/users', auth.isInRole('admin'), controllers.users.getAllUsers);
+
+  // GET
+  app.get('/users', auth.isInRole('admin'), controllers.users.getAllUsers);
+
   //// GET users/profile/{userId} - gets an existing user
   //app.get('/users/:id', controllers.users.getUserById);
   //
   //// GET users/register - returns user(s) registration form
   //app.get('/users/register', controllers.users.registrationFrom);
-  //
-  //// POST users/register - Registers a new user in the events system
-  //app.post('/users/register', controllers.users.createUser);
-  //
-  //// PUT users/profile/{userId} - updates an existing user
-  //app.put('/users/:id', auth.isAuthenticated, controllers.users.updateUser);
-  //
+
+  // POST users/register - Registers a new user in the events system
+  app.post('/users/register', controllers.users.createUser);
+
+  // PUT users/profile/{userId} - updates an existing user
+  app.put('/users/:id', auth.isAuthenticated, controllers.users.updateUser);
+
   //// POST users/login - Logs in a user in the events system
   //app.post('/users/login', auth.login);
   //
@@ -29,7 +32,7 @@ module.exports = function(app) {
   app.get('/events', controllers.events.getAllEvents);
 
   ////GET events/{eventId} - Gets event (details) with Id = eventId, with 10 comments sorted by date
-  // app.get('/events/:id', controllers.events.getEventById);
+  app.get('/events/:id', controllers.events.getEventById);
   //
   // //GET events?page=page (*P) - Gets the events at positions from P10 to (P+1)10. The events sorted by date of creation and are at most 10.
   // // TODO: app.get('/events/:id', controllers.events.getEvents);
@@ -60,8 +63,14 @@ module.exports = function(app) {
 
   // NOT FOUND
   app.get('/*', function(req, res) {
-    res.status(404);
-    res.end();
+    res.render('error', {
+        message: 'The page you are looking for could not be found!',
+        error: {
+          status: "Status: Error 404",
+          stack: "Stack not provided!"
+        }
+      }
+    );
   });
 
   app.get('*', function(req, res) {
