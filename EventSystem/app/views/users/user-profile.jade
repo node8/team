@@ -1,0 +1,25 @@
+
+extends ../layout
+
+block content
+  div(style='margin-top: 60px')
+
+  .container
+    .row
+      .col-lg-3.col-sm-6
+        .card.hovercard
+          .cardheader
+        .avatar
+          img(src='user.profilePicture')
+        .info
+          .title
+            a(target="_blank" href="http://scripteden.com/") SOME TITLE
+          .desc
+            | user.username
+          .desc
+            | user.firstname
+          .desc
+            | user.lastname
+        .bottom
+          a.btn.btn-primary.btn-twitter.btn-sm(href='user.email') user.email
+

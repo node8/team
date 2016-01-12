@@ -1,0 +1,17 @@
+extends ../layout
+
+block content
+  h1 ...
+  h1 Add new Comment
+
+  // get id for comment?
+  form.form-horizontal(action="/events", method="POST", enctype="multipart/form-data")
+
+    .form-group
+      label.col-sm-2.control-label(for="tb-comment")
+        | Comment:
+      .col-sm-10
+        input.form-control#tb-comment(name="comment", placeholder="Your commnet here...")
+    .form-group
+      button.btn.btn-primary.col-sm-12 Add Comment
+

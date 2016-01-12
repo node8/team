@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+
+  h1 ...
+  h1 Add new Event
+
+  form.form-horizontal(action="/events", method="POST", enctype="multipart/form-data")
+
+    .form-group
+      label.col-sm-2.control-label(for="tb-title")
+        | Title:
+      .col-sm-10
+        input.form-control#tb-title(name="title", placeholder="Title")
+    .form-group
+      label.col-sm-2.control-label(for="tb-description")
+        | Description:
+      .col-sm-10
+        input.form-control#tb-description(name="description", placeholder="Description")
+    //.form-group
+    //  label.col-sm-2.control-label(for="tb-town")
+    //    | Town:
+    //  .col-sm-10
+    //    input.form-control#tb-town(name="town", placeholder="Town")
+    .form-group
+      label.col-sm-2.control-label(for="tb-town")
+          | Town:
+        .col-sm-10
+          select.form-control#tb-town(name="town", value="0")
+            each town, i in ["Sofia", "Bourgas", "Plovdiv", "Varna"]
+              option(value=i) Town: #{town}
+    .form-group
+      label.col-sm-2.control-label(for="tb-image")
+        | Image:
+      .col-sm-10
+        input.form-control#tb-image(type="text", name="image", placeholder="Image url")
+    .form-group
+      label.col-sm-2.control-label(for="tb-image-file")
+        | Image Upload:
+      .col-sm-10
+        input.form-control#tb-image-file(type="file", name="image-file", placeholder="Image url")
+    .form-group
+      label.col-sm-2.control-label(for="tb-datetime")
+        | Datetime:
+      .col-sm-10
+        input.form-control#tb-datetime(type="date", name="datetime")
+    .form-group
+      button.btn.btn-primary.col-sm-12 Add Event
