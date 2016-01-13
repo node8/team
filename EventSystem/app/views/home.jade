@@ -2,6 +2,9 @@ extends ./layout
 
 block content
   .container
+    .row.jumbotron
+      h1 Welcome To Event System!
+      p The place where you can manage your events!
     .panel.panel-success.col-md-5
       .panel-heading
         .panel-title
@@ -16,7 +19,8 @@ block content
           tbody
             each event in newestEvents
               tr
-                td= event.title
+                td
+                  a(href="/events/" + event._id)= event.title
                 td= event.comments.length
                 if(event.user)
                   td= event.user.username
@@ -37,7 +41,8 @@ block content
           tbody
             each event in mostCommentedEvents
               tr
-                td= event.title
+                td
+                  a(href="/events/" + event._id)= event.title
                 td= event.comments.length
                 if(event.user)
                   td= event.user.username
