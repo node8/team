@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  h1= title
+
+  ul
+    each comment in comments
+      li
+        strong UserId:
+        span= comment.userId
+        br
+        strong EventId:
+        span= comment.eventId
+        br
+        strong Content:
+        span= comment.content

@@ -5,16 +5,16 @@ block content
   h1 Add new Comment
 
   // get id for comment?
-  form.form-horizontal(action="/comments", method="POST", enctype="multipart/form-data")
+  form.form-horizontal(action="/comments", method="POST")
 
     .form-group
-      label.col-sm-2.control-label(for="tb-comment")
+      label.col-sm-2.control-label(for="tb-content")
         | Comment:
       .col-sm-10
-        input.form-control#tb-comment(name="comment", placeholder="Your commnet here...")
+        input.form-control#tb-content(name="content", placeholder="Your commnet here...")
     .form-group
       .col-sm-10
-        input.form-control.hidden#tb-event-id(name="eventid", value=eventId)
+        input.form-control.hidden#tb-event-id(name="eventId", value=eventId)
     .form-group
       button.btn.btn-primary.col-sm-12 Add Comment
 
