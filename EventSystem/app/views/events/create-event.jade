@@ -28,7 +28,7 @@ block content
         .col-sm-10
           select.form-control#tb-town(name="town", value="Sofia")
             each town, i in ["Sofia", "Bourgas", "Plovdiv", "Varna"]
-              option(value=town) town
+              option(value=town)= town
     .form-group
       label.col-sm-2.control-label(for="tb-image")
         | Image:

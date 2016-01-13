@@ -8,8 +8,6 @@ html(lang='en')
       link(rel='stylesheet', href='/css/style.css')
       link(rel='stylesheet', href='https://bootswatch.com/darkly/bootstrap.css')
     block js
-      if ENV_DEVELOPMENT
-        script(src='http://localhost:35729/livereload.js')
       script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js')
       script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
   body
@@ -26,9 +24,9 @@ html(lang='en')
           ul(class='nav navbar-nav')
             li
               a(href='/events') Events
-          if user != undefined && user.roles.indexOf('admin') > -1
-            li
-              a(href='/events/create') Create event
+            if user != undefined && user.roles.indexOf('admin') > -1
+              li
+                a(href='/events/create') Create event
           ul(class='nav navbar-nav navbar-right')
             if user == undefined
               li
