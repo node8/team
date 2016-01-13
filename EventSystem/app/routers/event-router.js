@@ -17,8 +17,7 @@ router.get('/:id', controllers.events.getEventById);
 // //GET events?page=page (*P) - Gets the events at positions from P10 to (P+1)10. The events sorted by date of creation and are at most 10.
 // // TODO: app.get('/:id', controllers.events.getEvents);
 //
-////POST events/{eventID}/comments - Creates a new comment for a given event
-//app.post('/:id/comments', controllers.comments.postComment);
+router.get('/:id/addComment', controllers.comments.getCommentCreationForm);
 //
 ////POST events/{eventId}/rate header body: { “rate”: 1-5 (int)} - Creates rating by the current user for the event with Id = eventId
 //app.post('/:id/rate', controllers.ratings.rateEvent);

@@ -3,6 +3,7 @@ var mongoose = require('mongoose'),
 
 var CommentSchema = new Schema({
   userId: String,
+  eventId: String,
   content: String
 });
 
