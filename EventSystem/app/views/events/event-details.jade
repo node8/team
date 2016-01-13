@@ -1,14 +1,27 @@
 extends ../layout
 
-block content
-  h1 ...
-  h1= title
+// title: String,
+//  description: String,
+//  date: Date,
+//  town: townModel,
+//  user: userModel,
+//  comments: [commentModel],
+//  rating: [ratingModel]
 
-  h1= event.title
-  h3= event.description
+block content
+  h1 Title:
+  = event.title
+  h3 Description:
+  = event.description
+  h3 Date:
+  = event.date
+  h3 Town:
+  = event.town
+  h3 Username:
+  = event.user.username
 
   p
-  a.btn.btn-(class='button', href='/events/' + event.id + '/addComment') Add comment
+  a.btn.btn-primary.col-sm-3(class='button', href='/events/' + event.id + '/addComment') Add comment
 
   ul
     each comment in comments
