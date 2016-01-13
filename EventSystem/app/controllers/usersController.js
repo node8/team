@@ -39,12 +39,33 @@ module.exports = {
     }
   },
   getAllUsers: function(req, res) {
-    User.find({}).exec(function(err, collection) {
+    User.find({}).exec(function(err, allUsers) {
       if (err) {
         console.log('Users could not be loaded: ' + err);
       }
 
-      res.send(collection);
+      res.render('users/user-panel', {
+        title: 'Admin user panel',
+        user: req.user,
+        users: allUsers
+      });
     })
+  },
+  deleteUser: function(req, res) {
+    console.log(req.body.userId);
+    User.findById(req.body.userId, function(err, user) {
+      if (err) {
+        console.log('Could not find user by id');
+        res.redirect('/home');
+      }
+
+      user.remove(function(err) {
+        if (err) {
+          console.log('Could not delete user');
+        }
+
+        res.redirect('/users');
+      });
+    });
   }
-}
+};

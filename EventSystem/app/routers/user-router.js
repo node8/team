@@ -9,7 +9,7 @@ var express = require('express'),
 /* Users */
 // GET
 // auth.isInRole('admin')
-router.get('/', auth.isAuthenticated, controllers.users.getAllUsers);
+router.get('/', auth.isInRole('admin'), controllers.users.getAllUsers);
 
 //// GET users/profile/{userId} - gets an existing user
 //router.get('/:id', controllers.users.getUserById);
@@ -25,6 +25,8 @@ router.post('/register', controllers.users.createUser);
 // PUT users/profile/{userId} - updates an existing user
 router.put('/:id', auth.isAuthenticated, controllers.users.updateUser);
 
+// DELETE user/ - deletes user by id sent from form
+router.post('/', auth.isInRole('admin'), controllers.users.deleteUser);
 
 // GET users/login - returns user login form
 router.get('/login', function (req, res) {

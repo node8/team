@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+  table.table.table-striped
+    thead
+      tr
+        th Username
+        th First Name
+        th Last Name
+        th Roles
+        th Delete
+    tbody
+      each listUser in users
+        if listUser.roles.indexOf('admin') == -1
+          tr
+            td= listUser.username
+            td= listUser.firstName
+            td= listUser.lastName
+            if listUser.roles.length != 0
+              td= listUser.roles
+            else
+              td No roles
+            td
+              form(action='/users', method="POST")
+                input(type='text', value=listUser.id, name='userId', class='hidden')
+                button(class='btn btn-danger btn-block') REMOVE
