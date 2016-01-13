@@ -28,7 +28,8 @@ module.exports = {
     var newComment = {};
     newComment = {
       content: req.body.content,
-      user: req.user,
+      userId: req.user._id,
+      username: req.user.username,
       eventId: currentEventId
     };
 

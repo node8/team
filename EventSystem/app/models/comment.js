@@ -1,9 +1,9 @@
 var mongoose = require('mongoose'),
-  Schema = mongoose.Schema,
-  userModel = mongoose.model('User').schema;
+  Schema = mongoose.Schema;
 
 var CommentSchema = new Schema({
-  user: userModel,
+  userId: userId,
+  username: username,
   eventId: String,
   content: String
 });

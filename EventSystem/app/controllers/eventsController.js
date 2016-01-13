@@ -51,21 +51,17 @@ module.exports = {
         return;
       }
 
-      let eventComments = {};
       Comment.find( { eventId: req.params.id }).exec(function(err, commentsByEventId){
         if(err){
           console.log("Comments failed to be loaded" + err);
-          return;
         }
 
-        eventComments = commentsByEventId;
-      });
-
-      res.render('events/event-details', {
-        title: 'Event details:',
-        event: getEvent,
-        user: req.user,
-        comments: eventComments
+        res.render('events/event-details', {
+          title: 'Event details:',
+          event: getEvent,
+          user: req.user,
+          comments: commentsByEventId
+        });
       });
     });
   }
