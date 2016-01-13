@@ -12,21 +12,27 @@ block content
   h1
     | Title:&nbsp;
     =event.title
-  img(src='#{event.image}' class='img-thumbnail')
-  h3
-    |Description:&nbsp;
-    = event.description
-  h3
-    | Date:&nbsp;
-    = event.date
-  h3
-    |Town:&nbsp;
-    = event.town
-  h3
-    | Username:&nbsp;
-    = event.username
+  .col-sm-6
+    p
+      | Date:&nbsp;
+      = event.date
+    p
+      | Town:&nbsp;
+      = event.town
+    p
+      | Username:&nbsp;
+      = event.username
+    p
+      | Description:&nbsp;
+      = event.description
+
+    a.btn.btn-success.col-sm-3(class='button', href='/events/' + event.id + '/join') Join
+
+  .col-sm-6
+    img(src='#{event.image}' class='img-thumbnail')
   .row
-    a.btn.btn-primary.col-sm-3(class='button', href='/events/' + event.id + '/addComment') Add comment
+    a.btn.btn-info.col-sm-3(class='button', href='/events/' + event.id + '/addComment') Add comment
+
 
   .container
     .row
