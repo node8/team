@@ -2,10 +2,18 @@ extends ../layout
 
 block content
   h1 ...
-  h1 Event details
+  h1= title
 
-  h1 event.title
-  h3 event.description
+  h1= event.title
+  h3= event.description
 
   p
   a(class='button', href='/events/' + event.id + '/addComment') Add comment
+
+  ul
+    each comment in comments
+      li
+        strong= comment.user
+        span
+          | :
+        span= comment.content

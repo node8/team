@@ -1,4 +1,5 @@
 var Event = require('mongoose').model('Event');
+var Comment = require('mongoose').model('Comment');
 
 module.exports = {
   getAllEvents: function(req, res, next) {
@@ -47,13 +48,17 @@ module.exports = {
         res.status(404).end();
       }
 
-      console.log("Event got!");
-
-      res.render('events/event-details', {
-        title: 'New event',
-        event: getEvent,
-        user: req.user
+      Comment.find( { eventId: req.params.id }).exec(function(err, commentsByEventId){
+        if(err){
+          console.log("Comments failed to be loaded" + err);
+        }
+        res.render('events/event-details', {
+          title: 'Event details:',
+          event: getEvent,
+          user: req.user,
+          comments: commentsByEventId
+        });
       });
-    })
+    });
   }
 };
