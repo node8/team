@@ -5,50 +5,45 @@ const DEFAULT_PAGE = 1;
 const DEFAULT_SIZE = 10;
 
 module.exports = {
-  get10NewestEvents: function(req, res) {
+  get10NewestEventsAnd10MostCommentedEvents: function(req, res) {
+    var data = {};
     var page = req.query.page || DEFAULT_PAGE;
     var size = req.query.size || DEFAULT_SIZE;
 
-    Event.find({})
-      .skip((page - 1) * size)
-      .limit(size)
-      .exec(function(err, events) {
+    Event.find({}, {}, {
+      skip: 0,
+      take: 10,
+      limit: 10,
+      sort: {
+        date: -1
+      }
+    }, function (err, events) {
+      if (err) {
+        // res.redirect('error')
+        throw err;
+      }
+
+      data.newestEvents = events || {};
+
+      Event.find({}, {}, {
+        skip: 0,
+        take: 10,
+        limit: 10,
+        sort:{
+          comments: -1
+        }
+      }, function (err, events) {
         if (err) {
           // res.redirect('error')
           throw err;
         }
 
-        Event.count({})
-          .exec(function(err, count) {
-            res.render('events/list-events', {
-              events: events,
-              pages: (count / size) | 0 + 1,
-              page: page
-            });
-          });
-      });
-  },
-  getTop10MostCommentedEvents: function(req, res) {
-    var page = req.query.page || DEFAULT_PAGE;
-    var size = req.query.size || DEFAULT_SIZE;
+        data.mostCommentedEvents = events || {};
 
-    Event.find({})
-      .skip((page - 1) * size)
-      .limit(size)
-      .exec(function(err, events) {
-        if (err) {
-          // res.redirect('error')
-          throw err;
-        }
-
-        Event.count({})
-          .exec(function(err, count) {
-            res.render('events/list-events', {
-              events: events,
-              pages: (count / size) | 0 + 1,
-              page: page
-            });
-          });
-      });
+        data.user = req.user;
+        console.log(data);
+        res.render('./home', data);
+      })
+    })
   }
 };
