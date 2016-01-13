@@ -5,7 +5,7 @@ block content
   h1 ...
   h1 Add new Event
 
-  form.form-horizontal(action="/events", method="POST", enctype="multipart/form-data")
+  form.form-horizontal(action="/events", method="POST")
 
     .form-group
       label.col-sm-2.control-label(for="tb-title")
@@ -26,9 +26,9 @@ block content
       label.col-sm-2.control-label(for="tb-town")
           | Town:
         .col-sm-10
-          select.form-control#tb-town(name="town", value="0")
+          select.form-control#tb-town(name="town", value="Sofia")
             each town, i in ["Sofia", "Bourgas", "Plovdiv", "Varna"]
-              option(value=i) Town: #{town}
+              option(value=town) town
     .form-group
       label.col-sm-2.control-label(for="tb-image")
         | Image:
@@ -43,6 +43,6 @@ block content
       label.col-sm-2.control-label(for="tb-datetime")
         | Datetime:
       .col-sm-10
-        input.form-control#tb-datetime(type="date", name="datetime")
+        input.form-control#tb-datetime(type="date", name="date")
     .form-group
       button.btn.btn-primary.col-sm-12 Add Event

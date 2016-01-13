@@ -15,10 +15,10 @@ var EventSchema = new Schema({
   comments: [commentModel],
   rating: [ratingModel]
 });
-
-EventSchema.path('date').validate(function(val){
-  return val > Date.now
-}, "Date should be greater than current date!");
+//
+//EventSchema.path('date').validate(function(val){
+//  return val > Date.now
+//}, "Date should be greater than current date!");
 
 mongoose.model('Event', EventSchema);
 

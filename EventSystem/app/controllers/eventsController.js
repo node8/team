@@ -28,20 +28,19 @@ module.exports = {
     newEvent = {
       title: req.body.title,
       description: req.body.description,
-      user: req.user
+      user: req.user,
+      date: req.body.date,
+      town: {
+        name: req.body.town
+      }
     };
 
     Event.create(newEvent, function(err, createdEvent){
-        if (err) {
-          console.log('Failed to create new event: ' + err);
-          return;
-        }
-        res.render('events/event-details', {
-          title: 'New event',
-          event: createdEvent,
-          user: req.user
-        });
-      })
+      if (err) {
+        console.log('Failed to create new event: ' + err);
+      }
+      res.redirect('events/');
+    })
   },
   getEventById: function(req, res, next) {
     Event.findOne( { _id: req.params.id } ).exec(function(err, getEvent){

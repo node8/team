@@ -16,7 +16,7 @@ router.get('/', controllers.events.getAllEvents);
 //// --- ADMIN ONLY ---
 //POST events - Creates a new event and redirects to the newly created event
 // TODO: auth.isInRole('admin'),
-router.post('/', controllers.events.createEvent);
+router.post('/', auth.isInRole('admin'), controllers.events.createEvent);
 
 ////GET events/{eventId} - Gets event (details) with Id = eventId, with 10 comments sorted by date
 router.get('/:id', controllers.events.getEventById);
