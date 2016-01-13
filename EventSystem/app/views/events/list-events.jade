@@ -17,6 +17,10 @@ block content
               = event.username
             h5 Event:&nbsp;
               = event._id
+            .row
+              a.btn.btn-info.col-sm-3(class='button', href='/events/' + event._id) Details
+              a.btn.btn-success.col-sm-3.pull-right(class='button', href='/events/' + event._id + '/join') Join
+
           .col-md-8.col-md-offset-2
             hr
       else
