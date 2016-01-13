@@ -1,5 +1,9 @@
 extends ../layout
 
+block js
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js')
+  script(src='/js/delete-btn.js')
+
 block content
   table.table.table-striped
     thead
@@ -21,6 +25,4 @@ block content
             else
               td No roles
             td
-              form(action='/users', method="POST")
-                input(type='text', value=listUser.id, name='userId', class='hidden')
-                button(class='btn btn-danger btn-block') REMOVE
+              button(class='delete-btn btn btn-danger btn-block', user-data=listUser.id) REMOVE
