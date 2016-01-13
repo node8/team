@@ -1,5 +1,24 @@
 extends ./layout
 
 block content
-  each event in newestEvents
-    h3= event.title
+  .container
+    .panel.panel-success.col-md-6
+      .panel-heading
+        .panel-title
+          | Top 10 newest events
+      .panel-body
+        table.table
+          thead
+            tr
+              th Name
+              th Comments
+              th Author
+          tbody
+            each event in newestEvents
+              tr
+                td= event.title
+                td= event.comments.length
+                if(event.user)
+                  td= event.user.username
+                else
+                  td No author

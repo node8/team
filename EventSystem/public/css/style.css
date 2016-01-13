@@ -15,3 +15,16 @@ a {
 .hidden{
   visibility: hidden;
 }
+
+.table tr th, .table{
+  text-align: center;
+}
+
+.panel{
+  width: 100%;
+}
+
+.container{
+  width: 100%;
+  text-align: center;
+}
