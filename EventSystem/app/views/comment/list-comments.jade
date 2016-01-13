@@ -6,11 +6,14 @@ block content
   ul
     each comment in comments
       li
-        strong UserId:
+        strong UserId:&nbsp;
         span= comment.userId
         br
-        strong EventId:
+        strong Username:&nbsp;
+        span= comment.username
+        br
+        strong EventId:&nbsp;
         span= comment.eventId
         br
-        strong Content:
+        strong Content:&nbsp;
         span= comment.content
