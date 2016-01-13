@@ -2,7 +2,7 @@ extends ./layout
 
 block content
   .container
-    .panel.panel-success.col-md-6
+    .panel.panel-success.col-md-5
       .panel-heading
         .panel-title
           | Top 10 newest events
@@ -15,6 +15,27 @@ block content
               th Author
           tbody
             each event in newestEvents
+              tr
+                td= event.title
+                td= event.comments.length
+                if(event.user)
+                  td= event.user.username
+                else
+                  td No author
+    .col-md-2
+    .panel.panel-success.col-md-5
+      .panel-heading
+        .panel-title
+          | Top 10 commented events
+      .panel-body
+        table.table
+          thead
+            tr
+              th Name
+              th Comments
+              th Author
+          tbody
+            each event in mostCommentedEvents
               tr
                 td= event.title
                 td= event.comments.length

@@ -22,6 +22,7 @@ a {
 
 .panel{
   width: 100%;
+  padding: 0 !important;
 }
 
 .container{
