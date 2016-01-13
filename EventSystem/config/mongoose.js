@@ -6,6 +6,7 @@ var mongoose = require('mongoose'),
   event = require('../app/models/event');
 
 module.exports = function(config) {
+  user.seedInitialUsers();
   mongoose.connect(config.db);
   var db = mongoose.connection;
   db.on('error', function () {

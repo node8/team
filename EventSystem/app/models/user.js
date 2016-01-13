@@ -13,14 +13,6 @@ var userSchema = mongoose.Schema({
 });
 
 userSchema.method({
-  authenticate: function(password) {
-    if (encryption.generateHashedPassword(this.salt, password) === this.hashPass) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  },
   validPassword: function(password) {
     if (encryption.generateHashedPassword(this.salt, password) === this.hashPass) {
       return true;
@@ -32,3 +24,22 @@ userSchema.method({
 });
 
 var User = mongoose.model('User', userSchema);
+
+module.exports.seedInitialUsers = function() {
+  User.find({}).exec(function(err, collection) {
+    if (err) {
+      console.log('Cannot find users: ' + err);
+      return;
+    }
+
+    if (collection.length === 0) {
+      var salt;
+      var hashedPwd;
+
+      salt = encryption.generateSalt();
+      hashedPwd = encryption.generateHashedPassword(salt, 'admin');
+      User.create({username: 'admin', firstName: 'admin', lastName: 'admin', salt: salt, hashPass: hashedPwd, roles: ['admin']});
+      console.log('Users added to database...');
+    }
+  });
+};
