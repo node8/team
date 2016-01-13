@@ -56,15 +56,23 @@ module.exports = {
     User.findById(req.body.userId, function(err, user) {
       if (err) {
         console.log('Could not find user by id');
-        res.redirect('/home');
+        res.end();
+        return;
+      }
+
+      if (user == null) {
+        res.end();
+        return;
       }
 
       user.remove(function(err) {
         if (err) {
           console.log('Could not delete user');
+          res.end();
+          return;
         }
 
-        res.redirect('/users');
+        res.end();
       });
     });
   }

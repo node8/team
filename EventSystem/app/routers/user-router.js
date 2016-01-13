@@ -26,7 +26,7 @@ router.post('/register', controllers.users.createUser);
 router.put('/:id', auth.isAuthenticated, controllers.users.updateUser);
 
 // DELETE user/ - deletes user by id sent from form
-router.post('/', auth.isInRole('admin'), controllers.users.deleteUser);
+router.delete('/', auth.isInRole('admin'), controllers.users.deleteUser);
 
 // GET users/login - returns user login form
 router.get('/login', function (req, res) {
