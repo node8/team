@@ -34,8 +34,7 @@ router.get('/login', function (req, res) {
 //// POST users/login - Logs in a user in the events system
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/home',
-  failureRedirect: '/login',
-  failureFlash: true
+  failureRedirect: '/users/login'
 }));
 //
 //// PUT users/logout - Logs out a user from the events system
