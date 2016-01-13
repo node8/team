@@ -2,7 +2,8 @@
 
 var express = require('express'),
   router = new express.Router(),
-  controllers = require('../controllers');
+  controllers = require('../controllers'),
+  auth = require('../../config/auth');
 
 /* Events */
 // --- PUBLIC (ALL) ---
@@ -33,6 +34,7 @@ router.get('/:id', controllers.events.getEventById);
 // TODO: auth.isInRole('admin'),
 router.post('/', controllers.events.createEvent);
 
+router.get('/create', auth.isInRole('admin'), controllers.events.getCreateEventForm);
 //
 ////PUT events/{eventId} - Update an existing event, redirects to events
 //app.put('/:id', auth.isInRole('admin'), controllers.events.updateEventById);

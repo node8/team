@@ -13,6 +13,13 @@ module.exports = {
       });
     });
   },
+  getCreateEventForm: function(req, res) {
+    res.render('events/create-event', {
+      title: 'Create new event',
+      description: 'Create new event',
+      user: req.user
+    })
+  },
   createEvent: function(req, res, next) {
     var newEvent = {};
     newEvent = {
