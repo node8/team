@@ -5,7 +5,7 @@ var Comment = require('mongoose').model('Comment');
 
 module.exports = {
   getAllEvents: function(req, res, next) {
-    Event.find(function (err, events) {
+    Event.find({}).exec(function (err, events) {
       if (err) {
         return next(err);
       }
@@ -28,11 +28,10 @@ module.exports = {
     newEvent = {
       title: req.body.title,
       description: req.body.description,
-      user: req.user,
+      userId: req.user._id,
+      username: req.user.username,
       date: req.body.date,
-      town: {
-        name: req.body.town
-      }
+      town: req.body.town
     };
 
     Event.create(newEvent, function(err, createdEvent){

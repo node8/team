@@ -20,10 +20,10 @@ block content
     = event.date
   h3
     |Town:&nbsp;
-    = event.town.name
+    = event.town
   h3
     | Username:&nbsp;
-    = event.user.username
+    = event.username
   .row
     a.btn.btn-primary.col-sm-3(class='button', href='/events/' + event.id + '/addComment') Add comment
 
