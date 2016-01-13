@@ -52,6 +52,9 @@ module.exports = {
         if(err){
           console.log("Comments failed to be loaded" + err);
         }
+
+        console.log(commentsByEventId);
+
         res.render('events/event-details', {
           title: 'Event details:',
           event: getEvent,

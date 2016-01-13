@@ -28,7 +28,7 @@ module.exports = {
     var newComment = {};
     newComment = {
       content: req.body.content,
-      userId: req.user.id,
+      user: req.user,
       eventId: currentEventId
     };
 

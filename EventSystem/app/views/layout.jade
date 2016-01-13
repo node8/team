@@ -26,6 +26,9 @@ html(lang='en')
           ul(class='nav navbar-nav')
             li
               a(href='/events') Events
+          if user != undefined && user.roles.indexOf('admin') > -1
+            li
+              a(href='/events/create') Create event
           ul(class='nav navbar-nav navbar-right')
             if user == undefined
               li

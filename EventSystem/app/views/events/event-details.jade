@@ -8,7 +8,7 @@ block content
   h3= event.description
 
   p
-  a(class='button', href='/events/' + event.id + '/addComment') Add comment
+  a.btn.btn-(class='button', href='/events/' + event.id + '/addComment') Add comment
 
   ul
     each comment in comments
