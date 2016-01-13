@@ -2,6 +2,7 @@
 
 var Event = require('mongoose').model('Event');
 var Comment = require('mongoose').model('Comment');
+var constants = require('../common/constants');
 
 module.exports = {
   getAllEvents: function(req, res, next) {
@@ -31,17 +32,19 @@ module.exports = {
       userId: req.user._id,
       username: req.user.username,
       date: req.body.date,
-      town: req.body.town
+      town: req.body.town,
+      image: req.body.image
     };
 
     Event.create(newEvent, function(err, createdEvent){
       if (err) {
         console.log('Failed to create new event: ' + err);
+        return;
       }
-      res.redirect('events/');
+      res.redirect('events/' + createdEvent._id);
     })
   },
-  getEventById: function(req, res, next) {
+  getEventById: function(req, res) {
     Event.findOne( { _id: req.params.id } ).exec(function(err, getEvent){
       if(err){
         console.log("Event could not be found" + err);
@@ -52,6 +55,10 @@ module.exports = {
       Comment.find( { eventId: req.params.id }).exec(function(err, commentsByEventId){
         if(err){
           console.log("Comments failed to be loaded" + err);
+        }
+
+        if (!getEvent.image){
+          getEvent.image = constants.defaultImage;
         }
 
         res.render('events/event-details', {

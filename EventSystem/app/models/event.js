@@ -1,7 +1,6 @@
 // Event model
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema,
-  townModel = mongoose.model('Town').schema,
   commentModel = mongoose.model('Comment').schema,
   ratingModel = mongoose.model('Rating').schema;
 
@@ -12,6 +11,7 @@ var EventSchema = new Schema({
   town: String,
   userId: String,
   username: String,
+  image: String,
   comments: [commentModel],
   rating: [ratingModel]
 });
