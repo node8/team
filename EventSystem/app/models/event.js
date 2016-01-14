@@ -13,8 +13,12 @@ var EventSchema = new Schema({
   username: String,
   image: String,
   comments: [commentModel],
-  rating: [ratingModel]
+  rating: [ratingModel],
+  users: [{
+    username: String
+  }]
 });
+
 //
 //EventSchema.path('date').validate(function(val){
 //  return val > Date.now

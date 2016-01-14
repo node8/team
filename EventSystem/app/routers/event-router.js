@@ -32,23 +32,15 @@ router.get('/:id/addComment', controllers.comments.getCommentCreationForm);
 
 ////POST events/{eventId}/rate header body: { “rate”: 1-5 (int)} - Creates rating by the current user for the event with Id = eventId
 //app.post('/:id/rate', controllers.ratings.rateEvent);
-//
-////POST events/{eventID}/join - Current user can join to the event with Id = eventId
-//app.post('/:id/join', controllers.events.joinEvent);
-//
-// //POST events/{eventID}/leave - Current user can leave an event with ID = eventId
-//app.post('/:id/leave', controllers.events.leaveEvent);
-//
 
+//POST events/{eventID}/join - Current user can join to the event with Id = eventId
+router.put('/join', controllers.events.putJoin);
 
-
-//
 ////PUT events/{eventId} - Update an existing event, redirects to events
 //app.put('/:id', auth.isInRole('admin'), controllers.events.updateEventById);
 //
 ////DELETE events/{eventId} - Delete an existing event, returns the event created so it can be loaded in the UI
 //app.delete('/:id', auth.isInRole('admin'), controllers.events.deleteEvent);
-
 
 module.exports = function(app) {
   app.use('/events', router);

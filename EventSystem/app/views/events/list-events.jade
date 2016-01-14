@@ -1,5 +1,9 @@
 extends ../layout
 
+block js
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js')
+  script(src='/js/join-event-btn.js')
+
 block content
   div(style='margin-top: 60px')
     #container
@@ -19,7 +23,7 @@ block content
               = event._id
             .row
               a.btn.btn-info.col-sm-3(class='button', href='/events/' + event._id) Details
-              a.btn.btn-success.col-sm-3.pull-right(class='button', href='/events/' + event._id + '/join') Join
+              button(class='join-event-btn btn btn-success col-sm-3 pull-right', event-data=event.id) Join
 
           .col-md-8.col-md-offset-2
             hr

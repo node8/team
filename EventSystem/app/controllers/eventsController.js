@@ -24,7 +24,7 @@ module.exports = {
       user: req.user
     })
   },
-  createEvent: function(req, res, next) {
+  createEvent: function(req, res) {
     var newEvent = {};
     newEvent = {
       title: req.body.title,
@@ -65,7 +65,7 @@ module.exports = {
           title: 'Event details:',
           event: getEvent,
           user: req.user,
-          comments: commentsByEventId
+          comments: commentsByEventId,
         });
       });
     });
@@ -125,6 +125,26 @@ module.exports = {
       event.save();
 
       res.send('/events/' + req.body.eventId);
+  },
+  putJoin: function(req, res){
+    var eventId = req.body.eventId;
+    var username = req.user.username;
+
+    Event.findOne( { _id: eventId } ).exec(function(err, event){
+      if(err){
+        console.log("Event could not be found" + err);
+        return;
+      }
+
+      if(event.users.length <= 0){
+        event.users = [];
+      }
+      event.users.push({username:username});
+      event.save();
+
+      console.log(username + " joined event with id " + eventId);
+
+      res.send('/events/' + eventId);
     });
   }
 };
