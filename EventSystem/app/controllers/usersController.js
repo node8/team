@@ -1,5 +1,6 @@
 var encryption = require('../utilities/encryption');
 var User = require('mongoose').model('User');
+var Comment = require('mongoose').model('Comment');
 
 module.exports = {
   createUser: function(req, res, next) {
@@ -74,6 +75,38 @@ module.exports = {
 
         res.end();
       });
+    });
+  },
+  getUserDetails: function(req, res){
+    var data = {};
+
+    User.findById(req.params.id, function(err, user){
+      if (err) {
+        console.log('Could not find user by id');
+        res.end();
+        return;
+      }
+
+      if (user == null) {
+        res.end();
+        return;
+      }
+
+      //console.log(user);
+
+      data.user = user;
+
+      Comment.find({userId: req.params.id}, function(err, comments){
+        if (err)
+        {
+          throw err;
+        }
+
+        data.comments = comments;
+
+        console.log(comments);
+      })
+      //res.render("users/user-details", user)
     });
   }
 };

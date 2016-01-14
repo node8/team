@@ -33,6 +33,8 @@ router.get('/login', function (req, res) {
   res.render('users/login', {title: 'Login form'});
 });
 
+router.get('/:id', controllers.users.getUserDetails);
+
 //// POST users/login - Logs in a user in the events system
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/home',
