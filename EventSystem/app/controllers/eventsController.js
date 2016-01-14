@@ -141,14 +141,22 @@ module.exports = {
       if(event.users.length <= 0){
         event.users = [];
       }
-      event.users.push(
-        {
-          username:username,
-          userId: userId
-        });
-      event.save();
 
-      console.log(username + " joined event with id " + eventId);
+      var userFound = false;
+      for ( var i = 0, len =  event.users.length; i < len; i += 1){
+        if(event.users[i].username == username){
+          userFound = true;
+          break;
+        }
+      }
+
+      if(!userFound){
+        event.users.push({username:username, userId: userId});
+        event.save();
+        console.log(username + " joined event with id " + eventId);
+      } else {
+        console.log(username + " already joined event with id " + eventId);
+      }
 
       res.send('/events/' + eventId);
     });
