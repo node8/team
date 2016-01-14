@@ -19,11 +19,10 @@ block content
               = event.date
             h5 User:&nbsp;
               = event.username
-            h5 Event:&nbsp;
-              = event._id
-            .row
-              a.btn.btn-info.col-sm-3(class='button', href='/events/' + event._id) Details
-              button(class='join-event-btn btn btn-success col-sm-3 pull-right', event-data=event.id) Join
+            if user != undefined
+              .row
+                a.btn.btn-info.col-sm-3(class='button', href='/events/' + event._id) Details
+                button(class='join-event-btn btn btn-success col-sm-3 pull-right', event-data=event.id) Join
 
           .col-md-8.col-md-offset-2
             hr

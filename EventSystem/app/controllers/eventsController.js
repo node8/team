@@ -125,6 +125,7 @@ module.exports = {
       event.save();
 
       res.send('/events/' + req.body.eventId);
+    });
   },
   putJoin: function(req, res){
     var eventId = req.body.eventId;

@@ -5,9 +5,7 @@ var express = require('express'),
   controllers = require('../controllers'),
   auth = require('../../config/auth');
 
-router.get('/all', controllers.comments.getAll);
-
-//POST events/{eventID}/comments - Creates a new comment for a given event
+router.get('/all', auth.isAuthenticated, controllers.comments.getAll);
 router.post('/', auth.isAuthenticated, controllers.comments.postComment);
 
 

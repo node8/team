@@ -6,42 +6,21 @@ var express = require('express'),
   auth = require('../../config/auth'),
   passport = require('passport');
 
-/* Users */
-// GET
-// auth.isInRole('admin')
 router.get('/', auth.isInRole('admin'), controllers.users.getAllUsers);
-
-//// GET users/profile/{userId} - gets an existing user
-//router.get('/:id', controllers.users.getUserById);
-//
-//// GET users/register - returns user(s) registration form
 router.get('/register', function(req, res) {
   res.render('users/register', {title:'Registration form'})
 });
-
-// POST users/register - Registers a new user in the events system
 router.post('/register', controllers.users.createUser);
-
-// PUT users/profile/{userId} - updates an existing user
 router.put('/:id', auth.isAuthenticated, controllers.users.updateUser);
-
-// DELETE user/ - deletes user by id sent from form
 router.delete('/', auth.isInRole('admin'), controllers.users.deleteUser);
-
-// GET users/login - returns user login form
 router.get('/login', function (req, res) {
   res.render('users/login', {title: 'Login form'});
 });
-
 router.get('/:id', controllers.users.getUserDetails);
-
-//// POST users/login - Logs in a user in the events system
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/home',
   failureRedirect: '/users/login'
 }));
-//
-//// PUT users/logout - Logs out a user from the events system
 router.get('/logout', auth.logout);
 
 module.exports = function (app) {
