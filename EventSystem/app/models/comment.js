@@ -5,6 +5,7 @@ var CommentSchema = new Schema({
   userId: String,
   username: String,
   eventId: String,
+  eventName: String,
   content: String
 });
 

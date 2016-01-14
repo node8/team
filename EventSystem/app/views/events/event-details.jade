@@ -1,17 +1,21 @@
 extends ../layout
 
-block js
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js')
-  script(src='/js/join-event-btn.js')
+// title: String,
+//  description: String,
+//  date: Date,
+//  town: townModel,
+//  user: userModel,
+//  comments: [commentModel],
+//  rating: [ratingModel]
 
 block content
+  h1
+    | Title:&nbsp;
+    =event.title
   .col-sm-6
-    h1
-      | Title:&nbsp;
-      =event.title
     p
-        | Date:&nbsp;
-        = event.date
+      | Date:&nbsp;
+      = event.date
     p
       | Town:&nbsp;
       = event.town
@@ -22,17 +26,16 @@ block content
       | Description:&nbsp;
       = event.description
 
-    .row
-      button(class='join-event-btn btn btn-success col-sm-3', event-data=event.id) Join
-
+    a.btn.btn-success.col-sm-3(class='button', href='/events/' + event.id + '/join') Join
 
   .col-sm-6
     img(src='#{event.image}' class='img-thumbnail')
+  .row
+    a.btn.btn-info.col-sm-3(class='button', href='/events/' + event.id +'/' + event.title + '/addComment') Add comment
 
-  br
+
   .container
     h1 Comments:
-        a.btn.btn-info.col-sm-3.pull-right(class='button', href='/events/' + event.id + '/addComment') Add comment
     .row
       hr
       ul
@@ -43,13 +46,3 @@ block content
                 a(href="/users/" + comment.userId)= comment.username
             .panel-body= comment.content
             hr
-    h1 Users joined:
-      .row
-        hr
-        ul
-          each user in event.users
-            .panel.panel-default
-              .panel-heading
-                strong
-                  a(href="/users/" + user.userId)= user.username
-              hr

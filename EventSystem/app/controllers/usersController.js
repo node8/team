@@ -92,7 +92,7 @@ module.exports = {
         return;
       }
 
-      //console.log(user);
+      console.log(user);
 
       data.user = user;
 
@@ -104,9 +104,9 @@ module.exports = {
 
         data.comments = comments;
 
-        console.log(comments);
+        //console.log(comments);
+        res.render("users/user-details", data);
       })
-      //res.render("users/user-details", user)
     });
   }
 };

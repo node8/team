@@ -1,4 +1,20 @@
 extends ../layout
 
 block content
-  h1= username
+
+  h1
+    | Username:&nbsp;
+    =user.username
+
+  .container
+    h1 Comments:
+    .row
+      hr
+      ul
+        each comment in comments
+          .panel.panel-default
+            .panel-heading Event:
+              strong
+                a(href="/events/" + comment.eventId)= comment.eventName
+            .panel-body= comment.content
+            h

@@ -6,7 +6,8 @@ module.exports = {
     res.render('comment/create-comment',{
       title: 'Create new comment',
       user: req.user,
-      eventId: req.params.id
+      eventId: req.params.id,
+      eventName: req.params.title
     });
   },
   getAll: function(req, res) {
@@ -24,13 +25,16 @@ module.exports = {
   },
   postComment: function(req, res) {
     var currentEventId = req.body.eventId;
+    var currentEventName = req.body.eventName;
+    //console.log(req.body);
 
     var newComment = {};
     newComment = {
       content: req.body.content,
       userId: req.user._id,
       username: req.user.username,
-      eventId: currentEventId
+      eventId: currentEventId,
+      eventName: currentEventName
     };
 
     Comment.create(newComment, function(err, createdComment){
@@ -52,4 +56,4 @@ module.exports = {
 
       res.redirect('/events/' + currentEventId);
     });
-}};
+  }};
