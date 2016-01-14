@@ -2,12 +2,13 @@
 
 var express = require('express'),
   router = new express.Router(),
-  controllers = require('../controllers');
+  controllers = require('../controllers'),
+  auth = require('../../config/auth');
 
 router.get('/all', controllers.comments.getAll);
 
 //POST events/{eventID}/comments - Creates a new comment for a given event
-router.post('/', controllers.comments.postComment);
+router.post('/', auth.isAuthenticated, controllers.comments.postComment);
 
 
 module.exports = function(app) {
