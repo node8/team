@@ -35,9 +35,9 @@ html(lang='en')
                 a(href="/users/register") Register
             else
               li
-                a(href="/users/logout") Logout
-              li
                 a(href="/users/" + user._id)= user.username
+              li
+                a(href="/users/logout") Logout
             if user != undefined && user.roles.indexOf('admin') > -1
               li(class='dropdown')
                 a(class='dropdown-toggle', data-toggle='dropdown', role='button', aria-expanded='false') Admin
