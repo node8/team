@@ -69,5 +69,62 @@ module.exports = {
         });
       });
     });
+  },
+  getUpdateEventForm: function(req, res) {
+    Event.findById(req.params.id, function(err, event) {
+      if (err) {
+        res.render('error', {
+          title: 'There was an error!',
+          user: req.user,
+          message: 'There was a problem finding the event.',
+          error: {
+            status: '404 Not Found',
+            stack: 'Stack not provided'
+          }
+        })
+      }
+
+      res.render('events/update-event', {
+        user: req.user,
+        title: 'Update event',
+        event: event
+      });
+    });
+  },
+  updateEvent: function(req, res) {
+    Event.findById(req.body.eventId, function(err, event) {
+      if (err) {
+        res.render('error', {
+          title: 'There was an error',
+          user: req.user,
+          message: 'There was a problem finding the event for update.',
+          error: {
+            status: '404 Not Found',
+            stack: 'Stack not provided'
+          }
+        });
+      }
+
+      if (event == null) {
+        res.render('error', {
+          title: 'There was an error',
+          user: req.user,
+          message: 'There was a problem finding the event for update.',
+          error: {
+            status: '404 Not Found',
+            stack: 'Stack not provided'
+          }
+        });
+      }
+
+      event.title = req.body.title;
+      event.description = req.body.description;
+      event.date = req.body.date;
+      event.town = req.body.town;
+      event.image = req.body.image;
+      event.save();
+
+      res.send('/events/' + req.body.eventId);
+    });
   }
 };

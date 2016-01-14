@@ -21,6 +21,11 @@ router.post('/', auth.isInRole('admin'), controllers.events.createEvent);
 ////GET events/{eventId} - Gets event (details) with Id = eventId, with 10 comments sorted by date
 router.get('/:id', controllers.events.getEventById);
 
+router.put('/', auth.isInRole('admin'), controllers.events.updateEvent);
+
+// GET events/{eventId}/update - Gets the view for updating event information - accessible only by admin
+router.get('/:id/update', auth.isInRole('admin'), controllers.events.getUpdateEventForm);
+
 //GET events?page=page (*P) - Gets the events at positions from P10 to (P+1)10. The events sorted by date of creation and are at most 10.
 // TODO: app.get('/:id', controllers.events.getEvents);
 router.get('/:id/addComment', controllers.comments.getCommentCreationForm);
