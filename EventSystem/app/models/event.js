@@ -16,7 +16,7 @@ var EventSchema = new Schema({
   rating: [ratingModel],
   users: [{
     userId: String,
-    username: { type: String, unique: "User cannot join event twice" }
+    username: { type: String, index: { unique: true }}
   }]
 });
 
