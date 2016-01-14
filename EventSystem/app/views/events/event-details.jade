@@ -39,9 +39,8 @@ block content
       hr
       ul
         each comment in comments
-          li.text-left
-            strong= comment.username
-            span
-              | :&nbsp;
-            span= comment.content
-          hr
+          .panel.panel-default
+            .panel-heading
+              strong= comment.username
+            .panel-body= comment.content
+            hr
