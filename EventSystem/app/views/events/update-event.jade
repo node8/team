@@ -1,0 +1,44 @@
+extends ../layout
+
+block js
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js')
+  script(src='/js/update-event.js')
+
+block content
+  h1 Update event
+  .form-horizontal
+    .form-group
+      label.col-sm-2.control-label(for="tb-title")
+        | Title:
+      .col-sm-10
+        input.form-control#tb-title(name="title", placeholder="Title", value=event.title)
+    .form-group
+      label.col-sm-2.control-label(for="tb-description")
+        | Description:
+      .col-sm-10
+        input.form-control#tb-description(name="description", placeholder="Description", value=event.description)
+    //.form-group
+    //  label.col-sm-2.control-label(for="tb-town")
+    //    | Town:
+    //  .col-sm-10
+    //    input.form-control#tb-town(name="town", placeholder="Town")
+    .form-group
+      label.col-sm-2.control-label(for="tb-town")
+        | Town:
+      .col-sm-10
+        select.form-control#tb-town(name="town", value=event.town)
+          each town, i in ["Sofia", "Bourgas", "Plovdiv", "Varna"]
+            option(value=town)= town
+    .form-group
+      label.col-sm-2.control-label(for="tb-image")
+        | Image:
+      .col-sm-10
+        input.form-control#tb-image(type="text", name="image", placeholder="Image url", value=event.image)
+    .form-group
+      label.col-sm-2.control-label(for="tb-datetime")
+        | Datetime:
+      .col-sm-10
+        input.form-control#tb-datetime(type="date", name="date")
+        label.hidden#tb-event-id(event-id=event.id)
+    .form-group
+      button.btn.btn-primary.col-sm-12#update-event-btn Update Event
