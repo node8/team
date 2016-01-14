@@ -35,12 +35,14 @@ block content
 
 
   .container
+    h1 Comments:
     .row
       hr
       ul
         each comment in comments
           .panel.panel-default
-            .panel-heading
-              strong= comment.username
+            .panel-heading Made by:
+              strong
+                a(href="/users/" + comment.userId)= comment.username
             .panel-body= comment.content
             hr
