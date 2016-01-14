@@ -129,6 +129,7 @@ module.exports = {
   putJoin: function(req, res){
     var eventId = req.body.eventId;
     var username = req.user.username;
+    var userId = req.user._id;
 
     Event.findOne( { _id: eventId } ).exec(function(err, event){
       if(err){
@@ -139,7 +140,11 @@ module.exports = {
       if(event.users.length <= 0){
         event.users = [];
       }
-      event.users.push({username:username});
+      event.users.push(
+        {
+          username:username,
+          userId: userId
+        });
       event.save();
 
       console.log(username + " joined event with id " + eventId);

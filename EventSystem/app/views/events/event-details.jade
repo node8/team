@@ -29,8 +29,10 @@ block content
   .col-sm-6
     img(src='#{event.image}' class='img-thumbnail')
 
+  br
   .container
     h1 Comments:
+        a.btn.btn-info.col-sm-3.pull-right(class='button', href='/events/' + event.id + '/addComment') Add comment
     .row
       hr
       ul
@@ -41,22 +43,13 @@ block content
                 a(href="/users/" + comment.userId)= comment.username
             .panel-body= comment.content
             hr
-    .col-sm-6.col-md-6.col-lg-6
+    h1 Users joined:
       .row
-        a.btn.btn-info.col-sm-3(class='button', href='/events/' + event.id + '/addComment') Add comment
         hr
-      .row
         ul
-          each comment in comments
-            li.text-left
-              strong= comment.username
-              span
-                | :&nbsp;
-              span= comment.content
+          each user in event.users
+            .panel.panel-default
+              .panel-heading
+                strong
+                  a(href="/users/" + user.userId)= user.username
               hr
-    .col-sm-6.col-md-6.col-lg-6
-      .row
-        each user in event.users
-          li.text-left
-            span= user.username
-          hr

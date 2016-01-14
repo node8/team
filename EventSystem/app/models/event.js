@@ -15,7 +15,8 @@ var EventSchema = new Schema({
   comments: [commentModel],
   rating: [ratingModel],
   users: [{
-    username: String
+    userId: String,
+    username: { type: String, unique: "User cannot join event twice" }
   }]
 });
 
