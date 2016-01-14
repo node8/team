@@ -96,8 +96,17 @@ module.exports = {
 
       data.user = user;
 
+      Comment.find({userId: req.params.id}, function(err, comments){
+        if (err)
+        {
+          throw err;
+        }
 
-      res.render("users/user-details", user)
+        data.comments = comments;
+
+        console.log(comments);
+      })
+      //res.render("users/user-details", user)
     });
   }
 };
