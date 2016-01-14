@@ -22,10 +22,8 @@ block content
                 td
                   a(href="/events/" + event._id)= event.title
                 td= event.comments.length
-                if(event.user)
-                  td= event.user.username
-                else
-                  td No author
+                td
+                  a(href="/users/" + event.userId)= event.username
     .col-md-2
     .panel.panel-success.col-md-5
       .panel-heading
@@ -44,7 +42,5 @@ block content
                 td
                   a(href="/events/" + event._id)= event.title
                 td= event.comments.length
-                if(event.user)
-                  td= event.user.username
-                else
-                  td No author
+                td
+                  a(href="/users/" + event.userId)= event.username

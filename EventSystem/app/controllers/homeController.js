@@ -24,6 +24,7 @@ module.exports = {
       }
 
       data.newestEvents = events || {};
+      console.log(events);
 
       Event.find({}, {}, {
         skip: 0,

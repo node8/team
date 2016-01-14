@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a2c82c97-9d2c-473c-9b9d-2a602ca8a490" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventSystem/app/views/layout.jade" afterPath="$PROJECT_DIR$/EventSystem/app/views/layout.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventSystem/app/controllers/homeController.js" afterPath="$PROJECT_DIR$/EventSystem/app/controllers/homeController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EventSystem/app/views/home.jade" afterPath="$PROJECT_DIR$/EventSystem/app/views/home.jade" />
     </list>
     <ignored path="NodeJs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,16 +55,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="commentsController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EventSystem/app/controllers/commentsController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="comment.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EventSystem/app/models/comment.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -84,11 +75,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.jade" pinned="false" current-in-tab="true">
+      <file leaf-file-name="layout.jade" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EventSystem/app/views/layout.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.83870965">
+            <state vertical-scroll-proportion="0.0">
               <caret line="39" column="46" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.jade" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/EventSystem/app/views/home.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.25996205">
+              <caret line="25" column="66" selection-start-line="25" selection-start-column="66" selection-end-line="25" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -104,21 +105,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="event-details.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EventSystem/app/views/events/event-details.jade">
+      <file leaf-file-name="homeController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EventSystem/app/controllers/homeController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+              <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="homeController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/EventSystem/app/controllers/homeController.js">
+      <file leaf-file-name="event-details.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EventSystem/app/views/events/event-details.jade">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -172,9 +173,7 @@
         <option value="$PROJECT_DIR$/EventSystem/app/controllers/index.js" />
         <option value="$PROJECT_DIR$/EventSystem/app/routers/comment-router.js" />
         <option value="$PROJECT_DIR$/EventSystem/app/routers/home-router.js" />
-        <option value="$PROJECT_DIR$/EventSystem/app/controllers/homeController.js" />
         <option value="$PROJECT_DIR$/EventSystem/public/css/style.css" />
-        <option value="$PROJECT_DIR$/EventSystem/app/views/home.jade" />
         <option value="$PROJECT_DIR$/EventSystem/app/routers/user-router.js" />
         <option value="$PROJECT_DIR$/EventSystem/app/controllers/commentsController.js" />
         <option value="$PROJECT_DIR$/EventSystem/app/controllers/usersController.js" />
@@ -184,6 +183,8 @@
         <option value="$PROJECT_DIR$/EventSystem/app/views/events/event-details.jade" />
         <option value="$PROJECT_DIR$/EventSystem/app/views/users/user-details.jade" />
         <option value="$PROJECT_DIR$/EventSystem/app/views/layout.jade" />
+        <option value="$PROJECT_DIR$/EventSystem/app/controllers/homeController.js" />
+        <option value="$PROJECT_DIR$/EventSystem/app/views/home.jade" />
       </list>
     </option>
   </component>
@@ -224,6 +225,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -500,7 +502,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -604,7 +605,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="66" y="42" width="1320" height="784" extended-state="0" />
+    <frame x="66" y="42" width="1320" height="784" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24386503" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -881,13 +882,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EventSystem/app/views/home.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/EventSystem/config/auth.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -929,15 +923,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EventSystem/app/controllers/homeController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1007,8 +992,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/EventSystem/app/views/layout.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83870965">
+        <state vertical-scroll-proportion="0.0">
           <caret line="39" column="46" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EventSystem/app/controllers/homeController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EventSystem/app/views/home.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25996205">
+          <caret line="25" column="66" selection-start-line="25" selection-start-column="66" selection-end-line="25" selection-end-column="66" />
           <folding />
         </state>
       </provider>
